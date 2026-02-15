@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<body class="bg-body-secondary">
+		<div th:fragment="contact-add">
+			<div class="container-sm px-5 d-flex justify-content-center align-items-center">
+				<!-- Add form -->
+				<div class="m-3 px-5 py-3 bg-white" style="width: 50%;">
+					<h4 class="text-center mb-3 mt-3 text-warning">Add User</h4>
+					<!-- В атрибутах for, id, name прописуємо так, як прописані змінні в Entity-класі,
+					оскільки Hibernate розуміє саме такий напис -->
+					<form th:action="@{/add-contact}" method="post">
+						<div>
+							<label for="firstName"><span style="font-size:12px;">First name</span></label>
+							<input type="text" class="form-control fw-light" id="firstName" name="firstName"
+								placeholder="First name...">
+						</div>
+						<div>
+							<label for="lastName"><span style="font-size:12px;">Last name</span></label>
+							<input type="text" class="form-control fw-light" id="lastName" name="lastName"
+								placeholder="Last name...">
+						</div>
+						<div>
+							<label for="phone"><span style="font-size:12px;">Phone</span></label>
+							<input type="text" class="form-control fw-light" id="phone" name="phone"
+								   placeholder="Phone...">
+						</div>
+						<div class="container text-center mb-4"><br>
+							<a th:href="@{/contacts}" class="btn btn-outline-primary btn-sm">
+								<i class="bi bi-arrow-left"></i>&nbsp;Back</a>
+							&nbsp;&nbsp;
+							<button type="submit" class="btn btn-primary btn-sm">Add</button>
+						</div>
+					</form>
+				</div>
+				<!-- /Add form -->
+			</div>
+		</div>
+	</body>
+</html>

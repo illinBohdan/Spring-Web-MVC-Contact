@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<body class="bg-body-secondary">
+		<div th:fragment="contact-list" class="container p-2">
+			<div class="container">
+				<div class="text-left mb-3">
+					<a th:href="@{/create-contact}" class="btn btn-primary btn-sm m-2">
+						<i class="bi bi-plus-lg"></i>&nbsp;Add Contact</a><br>
+				</div>
+				<div class="bg-white p-3">
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">ID</th>
+								<th scope="col">First Name</th>
+								<th scope="col">Last Name</th>
+								<th scope="col">Phone</th>
+								<th scope="col">Action</th>
+							</tr>
+						</thead>
+						<tbody th:each="contact:${contacts}">
+							<tr>
+								<td th:text="${contact.id}"></td>
+								<td th:text="${contact.firstName}"></td>
+								<td th:text="${contact.lastName}"></td>
+								<td th:text="${contact.phone}"></td>
+								<td>
+									<a class="btn btn-warning btn-sm"
+									   th:href="@{/update-contact/{id}(id=${contact.id})}"
+									   role="button">Update</a>
+									&nbsp;&nbsp;
+									<a class="btn btn-danger btn-sm"
+									   th:href="@{/delete-contact/{id}(id=${contact.id})}"
+									   role="button">Delete</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<p class="font-weight-bold fs-3 text-center bg-white" th:text="${contactsInfo}"></p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

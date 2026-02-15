@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<body class="bg-body-secondary">
+		<div th:fragment="contact-update">
+			<div class="container-sm px-5 d-flex justify-content-center align-items-center">
+				<!-- Update form -->
+				<div class="m-3 px-5 py-3 bg-white" style="width: 50%;">
+					<h4 class="text-center mb-3 mt-3 text-warning">Update Contact</h4>
+					<form th:object="${contact}" th:action="@{/change-contact}" method="post">
+						<div>
+							<input type="hidden" name="id" class="form-control" th:field="*{id}">
+						</div>
+						<div>
+							<label for="firstName"><span style="font-size:12px;">First name</span></label>
+							<input type="text" class="form-control" id="firstName" name="firstName"
+								placeholder="First name..." th:field="*{firstName}">
+						</div>
+						<div>
+							<label for="lastName"><span style="font-size:12px;">Last name</span></label>
+							<input type="text"	class="form-control" id="lastName" name="lastName"
+								placeholder="Last name..." th:field="*{lastName}">
+						</div>
+						<div>
+							<label for="phone"><span style="font-size:12px;">Phone</span></label>
+							<input type="text"	class="form-control" id="phone" name="phone"
+								   placeholder="Phone..." th:field="*{phone}">
+						</div>
+						<div class="container text-center mb-4"><br>
+							<a th:href="@{/contacts}" class="btn btn-outline-primary btn-sm">
+								<i class="bi bi-arrow-left"></i>&nbsp;Back</a>
+							&nbsp;&nbsp;
+							<button type="submit" class="btn btn-primary btn-sm">Update</button>
+						</div>
+					</form>
+				</div>
+				<!-- /Update form -->
+			</div>
+		</div>
+	</body>
+</html>
